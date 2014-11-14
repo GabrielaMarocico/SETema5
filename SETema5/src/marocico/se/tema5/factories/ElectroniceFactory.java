@@ -7,11 +7,28 @@ import marocico.se.tema5.electronice.Tableta;
 import marocico.se.tema5.interfaces.IElectrocasnice;
 import marocico.se.tema5.interfaces.IElectronice;
 
+/**
+ * 
+ * Clasa ElectroniceFactory mosteneste clasa AbstractFactory
+ * 
+ * @author gby
+ *
+ */
 public class ElectroniceFactory extends AbstractFactory {
 
+	/**
+	 * Returneaza un obiect de tipul IElectronice. In functie de valoarea
+	 * parametrului diagonalaInch se va crea si se va returna un obiect de un
+	 * anumit tip (Smartphone/Laptop/Tableta)
+	 * 
+	 * @param numeProducator
+	 *            numele producatorului
+	 * @param diagonalaInch
+	 *            diagonala (in Inch)
+	 */
 	@Override
 	public IElectronice getElectronice(String numeProducator,
-			float diagonalaInch) {
+			double diagonalaInch) {
 
 		if (diagonalaInch == 0.0)
 			return null;
@@ -20,7 +37,7 @@ public class ElectroniceFactory extends AbstractFactory {
 			return new Smartphone(numeProducator, diagonalaInch);
 		else if (diagonalaInch >= 7 && diagonalaInch < 13)
 			return new Tableta(numeProducator, diagonalaInch);
-		else if (diagonalaInch >= 13 && diagonalaInch < 17)
+		else if (diagonalaInch >= 13 && diagonalaInch < 18)
 			return new Laptop(numeProducator, diagonalaInch);
 
 		return null;

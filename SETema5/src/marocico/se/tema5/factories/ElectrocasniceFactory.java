@@ -8,14 +8,24 @@ import marocico.se.tema5.electrocasnice.PrajitorPaine;
 import marocico.se.tema5.interfaces.IElectrocasnice;
 import marocico.se.tema5.interfaces.IElectronice;
 
+/**
+ * 
+ * Clasa ElectrocasniceFactory mosteneste clasa AbstractFactory
+ * @author gby
+ *
+ */
 public class ElectrocasniceFactory extends AbstractFactory {
 
-	@Override
-	public IElectronice getElectronice(String numeProducator,
-			float diagonalaInch) {
-		return null;
-	}
-
+	/**
+	 * Returneaza un obiect de tipul IElectrocasnice. In functie de valoarea
+	 * parametrului putereMaxima se va crea si se va returna un obiect de un
+	 * anumit tip (Aragaz/CuptorCuMicrounde/PlitaElectrica/PrajitorPaine).
+	 * 
+	 * @param numeProducator
+	 *            numele producatorului
+	 * @param diagonalaInch
+	 *            diagonala (in Inch)
+	 */
 	@Override
 	public IElectrocasnice getElectrocasnice(String numeProducator,
 			int putereMaxima) {
@@ -32,6 +42,12 @@ public class ElectrocasniceFactory extends AbstractFactory {
 		else if (putereMaxima >= 1200 && putereMaxima <= 1600)
 			return new PlitaElectrica(numeProducator, putereMaxima);
 
+		return null;
+	}
+	
+	@Override
+	public IElectronice getElectronice(String numeProducator,
+			double diagonalaInch) {
 		return null;
 	}
 
